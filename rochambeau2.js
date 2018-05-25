@@ -1,4 +1,5 @@
 // Stores the current player's and computer's choices
+// 0 = Rock, 1 = Paper, 2 = Scissors
 var playerChoice;
 var computerChoice;
 
@@ -104,7 +105,6 @@ function displayGameResult(result){
 function updateScore(val){
     ++score[val];
     console.log("The score is now " + score);
-    if()
 }
 
 // Function for displaying the score
