@@ -1,5 +1,4 @@
 // Stores the current player's and computer's choices
-// 0 = Rock, 1 = Paper, 2 = Scissors
 var playerChoice;
 var computerChoice;
 
@@ -43,11 +42,32 @@ function playGame(){
         updateScore(0);
         displayGameResult("win")
     } else if (playerChoice == 1 && computerChoice == 3) {
-        // Paper kills spock - a win!
+        // Paper beats spock - a win!
         updateScore(0);
         displayGameResult("win")
     } else if (playerChoice == 2 && computerChoice == 1) {
-        // Scissors beats paper - a win!
+        // Scissors cuts paper - a win!
+        updateScore(0);
+        displayGameResult("win")
+    } else if (playerChoice == 2 && computerChoice == 4) {
+        // Scissors kill lizard - a win!
+        updateScore(0);
+        displayGameResult("win")
+    }
+    else if (playerChoice == 3 && computerChoice == 2) {
+        // Spock defeats Scissors - a win!
+        updateScore(0);
+        displayGameResult("win")
+    } else if (playerChoice == 3 && computerChoice == 0) {
+        // Spock defeats Rock - a win!
+        updateScore(0);
+        displayGameResult("win")
+    } else if (playerChoice == 4 && computerChoice == 3) {
+        // Lizard defeats spock- a win!
+        updateScore(0);
+        displayGameResult("win")
+    } else if (playerChoice == 4 && computerChoice == 1) {
+        //Lizard defeats paper - a win!
         updateScore(0);
         displayGameResult("win")
     } else {
@@ -65,15 +85,15 @@ function displayGameResult(result){
     // Add to the base message if it was a win, loss, or tie
     if (result === "win") {
         // Display that it was a win
-        document.getElementById("result").textContent = message + " YOU WIN!";
+        document.getElementById("result").textContent = message + "Congrats my friend! You won!";
         document.getElementById("result").className = "alert alert-success";
     } else if (result === "lose") {
         // Display that it was a loss
-        document.getElementById("result").textContent = message + " YOU LOSE!";
+        document.getElementById("result").textContent = message + "I'm sorry, but you lost this round.";
         document.getElementById("result").className = "alert alert-danger";
     } else {
         // Display that it was a tie
-        document.getElementById("result").textContent = message + " A tie.";
+        document.getElementById("result").textContent = message + "You tied, so... try again!";
         document.getElementById("result").className = "alert alert-info";
     }
 
@@ -84,6 +104,7 @@ function displayGameResult(result){
 function updateScore(val){
     ++score[val];
     console.log("The score is now " + score);
+    if()
 }
 
 // Function for displaying the score
