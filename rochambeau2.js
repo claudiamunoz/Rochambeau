@@ -140,6 +140,12 @@ function updateScoreBoard(){
     document.getElementById("ties").textContent = score[1];
 }
 
+function updateComputerscoreboard(){
+     document.getElementById("comwins").textContent = score[0];
+    document.getElementById("comlosses").textContent = score[2];
+    document.getElementById("comties").textContent = score[1];
+}
+
 // The button elements
 var rockButton = document.getElementById("rock");
 var paperButton = document.getElementById("paper");
