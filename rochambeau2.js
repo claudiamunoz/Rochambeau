@@ -76,8 +76,32 @@ function playGame(){
         updateScore(2);
         displayGameResult("lose")
     }
+    // Here is the game ruleset algorithm
+    } else if (playerChoice == 0 && computerChoice == 2) {
+        updateComputerscore(2);
+    }else if (playerChoice == 0 && computerChoice == 4) {
+        updateComputerscore(2);
+    } else if (playerChoice == 1 && computerChoice == 0) {
+        updateComputerscore(2);
+    } else if (playerChoice == 1 && computerChoice == 3) {
+        updateComputerscore(2);
+    } else if (playerChoice == 2 && computerChoice == 1) {
+        updateComputerscore(2);
+    } else if (playerChoice == 2 && computerChoice == 4) {
+        updateComputerscorecore(2);
+    }
+    else if (playerChoice == 3 && computerChoice == 2) {
+        updateComputerscore(2);
+    } else if (playerChoice == 3 && computerChoice == 0) {
+        updateComputerscore(2);
+    } else if (playerChoice == 4 && computerChoice == 3) {
+        updateComputerscore(2);
+    } else if (playerChoice == 4 && computerChoice == 1) {
+        updateComputerscorecore(2);
+    } else {
+        updateComputerscore(0);
+    }
 }
-
 //Displays the result of the game
 function displayGameResult(result){
     // Define an array of text labels for the choices 0, 1, 2;
@@ -106,7 +130,9 @@ function updateScore(val){
     ++score[val];
     console.log("The score is now " + score);
 }
-
+function updateComputerscore(val){
+    ++score[val];
+}
 // Function for displaying the score
 function updateScoreBoard(){
     document.getElementById("wins").textContent = score[0];
