@@ -32,74 +32,60 @@ function playGame(){
         displayGameResult("tie")
     } else if (playerChoice == 0 && computerChoice == 2) {
         // Rock breaks scissors - a win!
+        updateComputerscore(2);
         updateScore(0);
         displayGameResult("win")
     }else if (playerChoice == 0 && computerChoice == 4) {
         // Rock kills lizard - a win!
+        updateComputerscore(2);
         updateScore(0);
         displayGameResult("win")
     } else if (playerChoice == 1 && computerChoice == 0) {
         // Paper covers rock - a win!
+        updateComputerscore(2);
         updateScore(0);
         displayGameResult("win")
     } else if (playerChoice == 1 && computerChoice == 3) {
         // Paper beats spock - a win!
+        updateComputerscore(2);
         updateScore(0);
         displayGameResult("win")
     } else if (playerChoice == 2 && computerChoice == 1) {
         // Scissors cuts paper - a win!
+        updateComputerscore(2);
         updateScore(0);
         displayGameResult("win")
     } else if (playerChoice == 2 && computerChoice == 4) {
         // Scissors kill lizard - a win!
+        updateComputerscore(2);
         updateScore(0);
         displayGameResult("win")
     }
     else if (playerChoice == 3 && computerChoice == 2) {
         // Spock defeats Scissors - a win!
+        updateComputerscore(2);
         updateScore(0);
         displayGameResult("win")
     } else if (playerChoice == 3 && computerChoice == 0) {
         // Spock defeats Rock - a win!
+        updateComputerscore(2);
         updateScore(0);
         displayGameResult("win")
     } else if (playerChoice == 4 && computerChoice == 3) {
         // Lizard defeats spock- a win!
+        updateComputerscore(2);
         updateScore(0);
         displayGameResult("win")
     } else if (playerChoice == 4 && computerChoice == 1) {
         //Lizard defeats paper - a win!
+        updateComputerscore(2);
         updateScore(0);
         displayGameResult("win")
-    } else {
-        // All other combinations are losses
+    // Here is the game ruleset algorithm
+    }else {
+        updateComputerscore(0);
         updateScore(2);
         displayGameResult("lose")
-    }
-    // Here is the game ruleset algorithm
-    } else if (playerChoice == 0 && computerChoice == 2) {
-        updateComputerscore(2);
-    }else if (playerChoice == 0 && computerChoice == 4) {
-        updateComputerscore(2);
-    } else if (playerChoice == 1 && computerChoice == 0) {
-        updateComputerscore(2);
-    } else if (playerChoice == 1 && computerChoice == 3) {
-        updateComputerscore(2);
-    } else if (playerChoice == 2 && computerChoice == 1) {
-        updateComputerscore(2);
-    } else if (playerChoice == 2 && computerChoice == 4) {
-        updateComputerscorecore(2);
-    }
-    else if (playerChoice == 3 && computerChoice == 2) {
-        updateComputerscore(2);
-    } else if (playerChoice == 3 && computerChoice == 0) {
-        updateComputerscore(2);
-    } else if (playerChoice == 4 && computerChoice == 3) {
-        updateComputerscore(2);
-    } else if (playerChoice == 4 && computerChoice == 1) {
-        updateComputerscorecore(2);
-    } else {
-        updateComputerscore(0);
     }
 }
 //Displays the result of the game
@@ -144,6 +130,7 @@ function updateComputerscoreboard(){
      document.getElementById("comwins").textContent = score[0];
     document.getElementById("comlosses").textContent = score[2];
     document.getElementById("comties").textContent = score[1];
+    updateComputerscore();
 }
 
 // The button elements
