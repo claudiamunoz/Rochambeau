@@ -9,6 +9,7 @@ var choices = ["Rock", "Paper", "Scissors", "Spock", "Lizard"];
 // Variable to store the score
 // score[0] = wins, score[1] = ties, score[2] = losses
 var score = [0,0,0];
+var computerscore = [0,0,0];
 
 // Stores the player's choice, then call's the function for storing the computer's choice
 function storePlayerChoice(choice) {
@@ -117,7 +118,7 @@ function updateScore(val){
     console.log("The score is now " + score);
 }
 function updateComputerscore(val){
-    ++score[val];
+    ++computerscore[val];
 }
 // Function for displaying the score
 function updateScoreBoard(){
@@ -127,9 +128,9 @@ function updateScoreBoard(){
 }
 
 function updateComputerscoreboard(){
-     document.getElementById("comwins").textContent = score[0];
-    document.getElementById("comlosses").textContent = score[2];
-    document.getElementById("comties").textContent = score[1];
+     document.getElementById("wins").textContent = score[0];
+    document.getElementById("losses").textContent = score[2];
+    document.getElementById("ties").textContent = score[1];
     updateComputerscore();
 }
 
