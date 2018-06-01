@@ -9,7 +9,7 @@ var choices = ["Rock", "Paper", "Scissors", "Spock", "Lizard"];
 // Variable to store the score
 // score[0] = wins, score[1] = ties, score[2] = losses
 var score = [0, 0, 0];
-var matcharray = [0,0];
+var matcharray = [0, 0];
 // Stores the player's choice, then call's the function for storing the computer's choice
 function storePlayerChoice(choice) {
     playerChoice = choice;
@@ -26,54 +26,60 @@ function storeComputerChoice() {
 // This is the function for playing the game
 function playGame() {
     // Here is the game ruleset algorithm
-    if (playerChoice == computerChoice) {
-        // We have a tie!
-        updateScore(1);
-        displayGameResult("tie")
-    } else if (playerChoice == 0 && computerChoice == 2) {
-        // Rock breaks scissors - a win!
-        updateScore(0);
-        displayGameResult("win")
-    } else if (playerChoice == 0 && computerChoice == 4) {
-        // Rock kills lizard - a win!
-        updateScore(0);
-        displayGameResult("win")
-    } else if (playerChoice == 1 && computerChoice == 0) {
-        // Paper covers rock - a win!
-        updateScore(0);
-        displayGameResult("win")
-    } else if (playerChoice == 1 && computerChoice == 3) {
-        // Paper beats spock - a win!
-        updateScore(0);
-        displayGameResult("win")
-    } else if (playerChoice == 2 && computerChoice == 1) {
-        // Scissors cuts paper - a win!
-        updateScore(0);
-        displayGameResult("win")
-    } else if (playerChoice == 2 && computerChoice == 4) {
-        // Scissors kill lizard - a win!
-        updateScore(0);
-        displayGameResult("win")
-    } else if (playerChoice == 3 && computerChoice == 2) {
-        // Spock defeats Scissors - a win!
-        updateScore(0);
-        displayGameResult("win")
-    } else if (playerChoice == 3 && computerChoice == 0) {
-        // Spock defeats Rock - a win!
-        updateScore(0);
-        displayGameResult("win")
-    } else if (playerChoice == 4 && computerChoice == 3) {
-        // Lizard defeats spock- a win!
-        updateScore(0);
-        displayGameResult("win")
-    } else if (playerChoice == 4 && computerChoice == 1) {
-        //Lizard defeats paper - a win!
-        updateScore(0);
-        displayGameResult("win")
-        // Here is the game ruleset algorithm
-    } else {
-        updateScore(2);
-        displayGameResult("lose")
+    if (score[0] ==! 2 || score[2] ==! 2) {
+        if (playerChoice == computerChoice) {
+            // We have a tie!
+            updateScore(1);
+            displayGameResult("tie")
+        } else if (playerChoice == 0 && computerChoice == 2) {
+            // Rock breaks scissors - a win!
+            updateScore(0);
+            displayGameResult("win")
+        } else if (playerChoice == 0 && computerChoice == 4) {
+            // Rock kills lizard - a win!
+            updateScore(0);
+            displayGameResult("win")
+        } else if (playerChoice == 1 && computerChoice == 0) {
+            // Paper covers rock - a win!
+            updateScore(0);
+            displayGameResult("win")
+        } else if (playerChoice == 1 && computerChoice == 3) {
+            // Paper beats spock - a win!
+            updateScore(0);
+            displayGameResult("win")
+        } else if (playerChoice == 2 && computerChoice == 1) {
+            // Scissors cuts paper - a win!
+            updateScore(0);
+            displayGameResult("win")
+        } else if (playerChoice == 2 && computerChoice == 4) {
+            // Scissors kill lizard - a win!
+            updateScore(0);
+            displayGameResult("win")
+        } else if (playerChoice == 3 && computerChoice == 2) {
+            // Spock defeats Scissors - a win!
+            updateScore(0);
+            displayGameResult("win")
+        } else if (playerChoice == 3 && computerChoice == 0) {
+            // Spock defeats Rock - a win!
+            updateScore(0);
+            displayGameResult("win")
+        } else if (playerChoice == 4 && computerChoice == 3) {
+            // Lizard defeats spock- a win!
+            updateScore(0);
+            displayGameResult("win")
+        } else if (playerChoice == 4 && computerChoice == 1) {
+            //Lizard defeats paper - a win!
+            updateScore(0);
+            displayGameResult("win")
+            // Here is the game ruleset algorithm
+        } else {
+            updateScore(2);
+            displayGameResult("lose")
+        }
+    } else if (score[0] === 2) {
+        updateMatchScore(1);
+    } else if (score[2] === 2) {
+        updateMatchScore(0);
     }
 }
 //Displays the result of the game
@@ -99,15 +105,16 @@ function displayGameResult(result) {
     updateScoreBoard();
 }
 
+function updateMatchScore(val) {
+    ++matcharray[val];
+}
+
+
 // Updates the score
 function updateScore(val) {
     ++score[val];
     console.log("The score is now " + score);
 }
- function updateMatch(val){
-     ++matcharray[val];
- }
-
 // Function for displaying the score
 function updateScoreBoard() {
     document.getElementById("wins").textContent = score[0];
@@ -115,9 +122,9 @@ function updateScoreBoard() {
     document.getElementById("ties").textContent = score[1];
 }
 
-function updateMatchScore(){
-    document.getElementById("computerwins").textContent = score[0];
-    document.getElementById("playerwins").textContent = score[1];
+function updateMatchScore() {
+    document.getElementById("computerwins").textContent = matcharray[0];
+    document.getElementById("playerwins").textContent = matcharray[1];
 }
 
 // The button elements
