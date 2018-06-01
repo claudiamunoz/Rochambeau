@@ -9,8 +9,7 @@ var choices = ["Rock", "Paper", "Scissors", "Spock", "Lizard"];
 // Variable to store the score
 // score[0] = wins, score[1] = ties, score[2] = losses
 var score = [0, 0, 0];
-var computerscore = [0, 0, 0];
-
+var matcharray = [0,0];
 // Stores the player's choice, then call's the function for storing the computer's choice
 function storePlayerChoice(choice) {
     playerChoice = choice;
@@ -98,7 +97,6 @@ function displayGameResult(result) {
     }
 
     updateScoreBoard();
-    updateComputerscore();
 }
 
 // Updates the score
@@ -107,11 +105,7 @@ function updateScore(val) {
     console.log("The score is now " + score);
 }
  function updateMatch(val){
-     var matcharray = [0, 0, 0];
-     var matches = document.getElementById("matches").innerHTML = matcharray;
-
-
-
+     ++matcharray[val];
  }
 
 // Function for displaying the score
@@ -121,10 +115,9 @@ function updateScoreBoard() {
     document.getElementById("ties").textContent = score[1];
 }
 
-function updateComputerscoreboard() {
-    document.getElementById("comwins").textContent = score[0];
-    document.getElementById("comlosses").textContent = score[2];
-    document.getElementById("comties").textContent = score[1];
+function updateMatchScore(){
+    document.getElementById("computerwins").textContent = score[0];
+    document.getElementById("playerwins").textContent = score[1];
 }
 
 // The button elements
