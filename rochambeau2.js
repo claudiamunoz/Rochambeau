@@ -33,57 +33,46 @@ function playGame() {
         displayGameResult("tie")
     } else if (playerChoice == 0 && computerChoice == 2) {
         // Rock breaks scissors - a win!
-        updateComputerscore(2);
         updateScore(0);
         displayGameResult("win")
     } else if (playerChoice == 0 && computerChoice == 4) {
         // Rock kills lizard - a win!
-        updateComputerscore(2);
         updateScore(0);
         displayGameResult("win")
     } else if (playerChoice == 1 && computerChoice == 0) {
         // Paper covers rock - a win!
-        updateComputerscore(2);
         updateScore(0);
         displayGameResult("win")
     } else if (playerChoice == 1 && computerChoice == 3) {
         // Paper beats spock - a win!
-        updateComputerscore(2);
         updateScore(0);
         displayGameResult("win")
     } else if (playerChoice == 2 && computerChoice == 1) {
         // Scissors cuts paper - a win!
-        updateComputerscore(2);
         updateScore(0);
         displayGameResult("win")
     } else if (playerChoice == 2 && computerChoice == 4) {
         // Scissors kill lizard - a win!
-        updateComputerscore(2);
         updateScore(0);
         displayGameResult("win")
     } else if (playerChoice == 3 && computerChoice == 2) {
         // Spock defeats Scissors - a win!
-        updateComputerscore(2);
         updateScore(0);
         displayGameResult("win")
     } else if (playerChoice == 3 && computerChoice == 0) {
         // Spock defeats Rock - a win!
-        updateComputerscore(2);
         updateScore(0);
         displayGameResult("win")
     } else if (playerChoice == 4 && computerChoice == 3) {
         // Lizard defeats spock- a win!
-        updateComputerscore(2);
         updateScore(0);
         displayGameResult("win")
     } else if (playerChoice == 4 && computerChoice == 1) {
         //Lizard defeats paper - a win!
-        updateComputerscore(2);
         updateScore(0);
         displayGameResult("win")
         // Here is the game ruleset algorithm
     } else {
-        updateComputerscore(0);
         updateScore(2);
         displayGameResult("lose")
     }
@@ -117,13 +106,11 @@ function updateScore(val) {
     ++score[val];
     console.log("The score is now " + score);
 }
-
-function updateComputerscore(val) {
-    ++computerscore[val];
-}
  function updateMatch(val){
-     ++score[val];
-     var matches = document.getElementById("matches");
+     var matcharray = [0, 0, 0];
+     var matches = document.getElementById("matches").innerHTML = matcharray;
+
+
 
  }
 
